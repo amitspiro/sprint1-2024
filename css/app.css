@@ -1,0 +1,37 @@
+body {
+    background-color: black;
+	text-align: center;
+	color: lightgray;
+}
+
+footer{
+	bottom: 10px;
+}
+
+table {
+	margin: 100px auto;
+	border: 1px solid lightgray;
+	margin-top: 50px;
+    background-color: rgb(0, 0, 0);
+}
+.cell {
+	color: black;
+	width: 40px;
+	height: 40px;
+	font-size: 1.5em;
+    border-color: aquamarine;
+    background-color: grey;
+	cursor: pointer;
+
+}
+.restartBtn{
+	cursor: pointer;
+	border-radius: 100%;
+	background-color: rgb(48, 48, 48);
+	
+}
+.hints{
+	cursor: pointer;
+	/* border-radius: 100%; */
+	background-color: rgb(50, 50, 50);
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Sweeper</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body onload="onInit()">
+    <h1>mine sweeper</h1>
+    <h2 >there are: <span class="negmine"></span> mines left</h2>
+    <h3><span class="lives"></span> lives left</h3>
+     <button onclick="restart()" class="restartBtn">😄</button>
+     <button onclick="hintsOn()" class="hints">hints</button>
+
+    <div class="board-container"></div>
+    <footer>
+        <p>coded by: Amit Spiro</p>
+      </footer>
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
