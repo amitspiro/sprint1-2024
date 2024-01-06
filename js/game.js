@@ -37,7 +37,7 @@ var gSafeCounter=3
 //This is called when page loads
 function onInit() {
   gBoard = buildBoard();
-  // addMines(gLevel.MINES);
+  addMines(gLevel.MINES);
   renderBoard(gBoard, ".board-container");
   updateLives();
   htmlHintsCounter();
@@ -76,14 +76,9 @@ function renderBoard(mat) {
       const className = `cell cell-${i}-${j}`;
       const elCell = document.querySelector(`.cell-${i}-${j}`);
 
-      strHTML += `<td oncontextmenu="onCellMarked(${elCell},${i},${j})" onclick="onCellClicked(${i},${j})" class="${className}">`;
+      strHTML += `<td oncontextmenu="onCellMarked(${i},${j})" onclick="onCellClicked(${i},${j})" class="${className}">`;
       // strHTML += `<td oncontextmenu="onCellMarked(${elCell},${i},${j})" onclick=" header(${location}), onCellClicked(${cell},${i},${j})" class="${className}">`;
 
-      mat[0][0].isMine = true;
-      mat[0][1].isMine = true;
-      mat[0][2].isMine = true;
-      // mat[2][2].isMine = true;
-      // mat[2][1].isMine = true;
 
       mat[i][j].minesAroundCount = checkMinesAroundCount(i, j);
       if (mat[i][j].isShown) {
@@ -268,6 +263,7 @@ function safeOn() {
 }
 
 function safeOff() {
+  // safeOn()
   gIsSafe = false;
 }
 
@@ -288,9 +284,14 @@ function updateHints() {
   return str;
 }
 
-function onCellMarked(elCell, i, j) {
+function onCellMarked(i, j) {
+  console.log(gBoard);
+  console.log(gBoard[i][j]);
+
   const cell = document.querySelector(`.cell-${i}-${j}`);
   const elMines = document.querySelector(".negmine");
+  console.log(cell);
+  console.log(elMines);
   if (gBoard[i][j].isMarked) {
     gMarked++;
     cell.innerHTML = EMPTY_IMG;
@@ -434,22 +435,26 @@ function hardLevel() {
 
   gLevel.SIZE = 12;
   gLevel.MINES = 32;
+  console.log(gBoard);
+
   onInit();
+  console.log(gBoard);
+
 }
 function safe(){
   var location= getEmptyCell()
   console.log(location);
-  const elCell= document.querySelector(`.cell-${location.I}-${location.J}`)
-  elCell.innerHTML=EMPTY_IMG
-  safeOut(elCell)
+  const elCell= document.querySelector(`.cell-${location.i}-${location.j}`)
+  elCell.innerHTML=SAFE_IMG
+  setTimeout(()=>safeOut(elCell),3000)
 }
 
 function safeOut(cell) {
 cell.innerHTML=EMPTY_IMG
 }
+
 function getEmptyCell() {
   var locations = [];
-  console.log(gBoard);
   while (gSafeCounter > 0) {
     for (var i = 0; i < gBoard.length; i++)
       for (var j = 0; j < gBoard[0].length; j++) {
@@ -457,23 +462,22 @@ function getEmptyCell() {
         if (gBoard[i][j].isMine) continue;
         if (gBoard[i][j].isShown) continue;
         // console.log(gBoard[i][j])
-        locations.push({ I: i, J: j });
+        locations.push({ i: i, j: j });
       }
     gSafeCounter--;
   }
-  // console.log(locations[5]);
-  // return locations[5];
   if (!locations.length) return;
   return locations[[getRandomInt(0, locations.length - 1)]];
 }
 
 function dark(){
   const elBody=document.querySelector('body')
-  elBody.style.backgroundColor='black;'
+  elBody.style.backgroundColor='black'
 }
+
 function light(){
   const elBody=document.querySelector('body')
-  elBody.style.backgroundColor='white;;'
+  elBody.style.backgroundColor='antiquewhite'
 }
 
 // function updateLastUser(){
