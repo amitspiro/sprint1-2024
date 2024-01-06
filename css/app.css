@@ -57,6 +57,7 @@ table {
 
 }
 .dark{
+	color: aliceblue;
 	background-color: black;
 	cursor: pointer;
 

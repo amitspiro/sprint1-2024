@@ -214,7 +214,8 @@ function revealCell(cell, i, j) {
 
 function unrevealCell(cell, i, j) {
   gBoard[i][j].isShown = false;
-  cell.innerHTML = EMPTY_IMG;
+  cell.style.backgroundColor= 'grey'
+  ;
 }
 
 function addMines(amount) {
