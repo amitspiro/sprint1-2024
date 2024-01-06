@@ -215,6 +215,7 @@ function revealCell(cell, i, j) {
 function unrevealCell(cell, i, j) {
   gBoard[i][j].isShown = false;
   cell.style.backgroundColor= 'grey'
+  cell.innerHTML=''
   ;
 }
 
