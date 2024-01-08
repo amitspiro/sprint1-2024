@@ -195,6 +195,8 @@ function revealCell(cell, i, j) {
     }
   } else {
     updateBoardMinesCount(gBoard);
+    var sound = new Audio("../sound/point.mp3");
+      sound.play();
     cell.classList.add("bomb");
     cell.innerHTML = MINE_IMG;
     if (!gIsHint) {
@@ -408,6 +410,8 @@ function gameLoser() {
   const elBtn = document.querySelector(".restartBtn");
   elBtn.innerHTML='restart'
   showMines(gBoard)
+  var sound = new Audio("../sound/explo.mp3");
+  sound.play();
   alert("you losttttt! try again?");
   const elBody=document.querySelector('body')
   elBody.style.backgroundColor='black'
