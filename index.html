@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body onload="onInit()">
-    <h1>mine sweeper</h1>
-    <h2 >there are: <span class="negmine"></span> mines left</h2>
+    <div class="header"></div>
+    <!-- <h1 class="btn">mine sweeper</h1> -->
+    <h2>there are: <span class="negmine btn"></span> mines left</h2>
     <h3><span class="lives"></span> lives left</h3>
-     <button onclick="restart()" class="restartBtn">😄</button>
-     <button onclick="hintsOn()" class="hints">hints</button>
-     <button onclick="easyLevel()" class="level easy">easy</button>
-     <button onclick="mediumLevel()" class="level medium">medium</button>
-     <button onclick="hardLevel()" class="level hard">hard</button>
-     <button onclick="safe()" class="safe">safe</button>
-     <button onclick="dark()" class="dark">dark</button>
-     <button onclick="light()" class="light">light</button>
+     <button onclick="restart()" class="restartBtn btn">😄</button>
+     <button onclick="hintsOn()" class="hints btn">hints</button>
+     <button onclick="easyLevel()" class="level easy btn">easy</button>
+     <button onclick="mediumLevel()" class="level medium btn">medium</button>
+     <button onclick="hardLevel()" class="level hard btn">hard</button>
+     <button onclick="safe()" class="safe btn">safe</button>
+     <button onclick="dark()" class="dark btn">dark</button>
+     <button onclick="light()" class="light btn">light</button>
+     <button onclick="basic()" class="basic btn">basic</button>
+     <!-- <button onclick="ex()" class="ex btn">exterminate</button> -->
 
     <div class="board-container"></div>
     <footer>

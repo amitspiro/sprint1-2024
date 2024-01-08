@@ -74,7 +74,7 @@ function renderBoard(mat) {
     strHTML += "<tr>";
     for (var j = 0; j < mat[0].length; j++) {
       const className = `cell cell-${i}-${j}`;
-      const elCell = document.querySelector(`.cell-${i}-${j}`);
+      // const elCell = document.querySelector(`.cell-${i}-${j}`);
 
       strHTML += `<td oncontextmenu="onCellMarked(${i},${j})" onclick="onCellClicked(${i},${j})" class="${className}">`;
       // strHTML += `<td oncontextmenu="onCellMarked(${elCell},${i},${j})" onclick=" header(${location}), onCellClicked(${cell},${i},${j})" class="${className}">`;
@@ -409,6 +409,9 @@ function gameLoser() {
   elBtn.innerHTML='restart'
   showMines(gBoard)
   alert("you losttttt! try again?");
+  const elBody=document.querySelector('body')
+  elBody.style.backgroundColor='black'
+  elBody.style.backgroundImage="url('img/exp.gif')"
 }
 function showMines(board){
   for(var i=0;i<board.length;i++){
@@ -458,7 +461,7 @@ cell.innerHTML=EMPTY_IMG
 function getEmptyCell() {
   var locations = [];
   while (gSafeCounter > 0) {
-    for (var i = 0; i < gBoard.length; i++)
+    for (var i = 0; i < gBoard.length; i++){
       for (var j = 0; j < gBoard[0].length; j++) {
         // console.log(locations);
         if (gBoard[i][j].isMine) continue;
@@ -468,6 +471,7 @@ function getEmptyCell() {
       }
     gSafeCounter--;
   }
+}
   if (!locations.length) return;
   return locations[[getRandomInt(0, locations.length - 1)]];
 }
@@ -475,12 +479,58 @@ function getEmptyCell() {
 function dark(){
   const elBody=document.querySelector('body')
   elBody.style.backgroundColor='black'
+  elBody.style.backgroundImage="url('img/ddd.gif')"
+  const elTitle=document.querySelector('h3')
+  elTitle.style.color='white'
+  const elBtn= document.querySelector('.btn')
+  elBtn.style.color='white'
 }
 
 function light(){
   const elBody=document.querySelector('body')
   elBody.style.backgroundColor='antiquewhite'
+  elBody.style.backgroundImage="url('img/ggg.gif')"
+  const elBtn= document.querySelector('.btn')
+  elBtn.style.color='black'
+  const elTitle=document.querySelector('h3')
+  elTitle.style.color='black'
 }
+
+function basic(){
+  const elBtn= document.querySelector('.btn')
+  elBtn.style.color='white'
+  const elTitle=document.querySelector('h3')
+  elTitle.style.color='white'
+  const elBody=document.querySelector('body')
+  elBody.style.backgroundColor='black'
+  elBody.style.backgroundImage="none"
+
+}
+// function ex(){
+//   console.log('lol')
+//   for(var i=0;i<3;i++){
+// var location = getMineCell()
+// console.log(location);
+// gBoard[location.i][location.j].isMine===false
+//   }
+//   updateBoardMinesCount(gBoard)
+// }
+// function getMineCell() {
+//   var locations = [];
+
+//     for (var i = 0; i < gBoard.length; i++){
+//       for (var j = 0; j < gBoard[0].length; j++) {
+//         // console.log(locations);
+//         if (gBoard[i][j].isMine==false) continue;
+//         if (gBoard[i][j].isShown) continue;
+//         // console.log(gBoard[i][j])
+//         locations.push({ i: i, j: j });
+      
+//   }
+//   // if (!locations.length) return;
+//   return locations[[getRandomInt(0, locations.length - 1)]];
+// }
+// }
 
 // function updateLastUser(){
 // var newName=prompt(`${gLastUser} was the last player. \מ try to beat his ${gLastScore} score! \מ  whats ur name?`)
